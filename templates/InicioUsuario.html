@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> <!-- Agregamos la fuente Montserrat -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .carousel-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: black; /* Cambiamos el color del texto a negro */
+        }
+        .carousel-caption h5, .carousel-caption p {
+            font-weight: bold; /* Hacemos el texto más ancho (negrita) */
+            color: white; /* Cambiamos el color del texto a blanco */
+            text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black; /* Simulamos un borde negro alrededor del texto */
+        }
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            filter: invert(100%); /* Invertimos el color de las flechas del carousel a negro */
+        }
+        .dropdown-item {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+        .search-container input[type=text] {
+            padding: 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            border: 2px solid black; /* Agregamos borde negro */
+            border-radius: 20px; /* Hacemos el contorno redondo */
+            font-size: 17px;
+        }
+        .search-container button {
+            padding: 10px 20px; /* Ajustamos el padding para que el botón sea más grande */
+            background: #ddd;
+            font-size: 17px;
+            border: 2px solid black; /* Agregamos borde negro */
+            border-radius: 20px; /* Hacemos el contorno redondo */
+            cursor: pointer;
+        }
+
+        @import url('https://fonts.googleapis.com/css2family=Nunito:wght;display=swap');
+
+/* Para aplicar en todo el documento */
+* {  
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+}
+
+body{
+    background-color: #0068FF;
+}
+
+.header{
+    background-color: #6DC5E7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    
+}
+
+.logo{
+    padding: 0px 5%;
+}
+
+.header .logo{
+    cursor: pointer;
+}
+
+.header .logo img {
+    height: 70px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.header .logo img:hover{
+    transform: scale(1.2);
+}
+
+.header .nav-links{
+    list-style: none;
+}
+
+.header .nav-links li{
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.header .nav-links li:hover{
+    transform: scale(1.1);
+}
+
+.header .nav-links a{
+    font-size: 700;
+    color: #eceff1;
+    text-decoration: none;
+}
+
+.header .nav-links li a:hover{
+    color: #0068FF;
+}
+
+.header .btn button{
+    font-weight: 700;
+    color: #1b3039;
+    padding: 9px 25px;
+    background: #eceff1;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.header .btn button:hover{
+    background-color: #e2f1f8;
+    color: #0068FF;
+    transform: scale(1.1);
+}
+
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .btn-container .btn {
+    margin-left: 0px;  /* Ajustar el margen entre botones */
+  }
+
+
+  #carouselExampleCaptions {
+    width: 100vw; /* Ancho del viewport para el carrusel */
+    height: 40%; /* La altura se ajustará automáticamente según la relación de aspecto de las imágenes */
+    margin: 0 auto; /* Centra horizontalmente el carrusel */
+}
+
+.carousel-item img {
+    width: 100%; /* Asegura que la imagen llene todo el ancho del carrusel */
+    height: auto; /* Deja que la altura se ajuste automáticamente según la relación de aspecto de las imágenes */
+    max-width: 100%; /* Establece un ancho máximo para evitar que la imagen se estire demasiado en pantallas grandes */
+}
+
+
+h1 {
+    font-size: 2.5em; /* Ajusta el tamaño de la fuente del encabezado principal */
+    margin-bottom: 20px; /* Añade un poco de espacio debajo del encabezado principal */
+    padding: 20px;
+}
+
+h3 {
+    font-size: 1.5em; /* Ajusta el tamaño de la fuente de los subencabezados */
+    margin-bottom: 10px; /* Añade un poco de espacio debajo de cada subencabezado */
+    padding: 20px;
+}
+
+.container {
+    display: flex; /* Esto hará que los elementos hijos se alineen en la misma línea */
+    justify-content: space-between; /* Esto separará los elementos hijos uniformemente en el contenedor */
+}
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="{{url_for('static', filename='img/mates.png')}}">
+        </div>
+        <div class="btn-container">
+            <a class="btn" href="/"><button>Salir</button></a>
+            <!-- <a class="btn" href="#"><button>Iniciar sesión</button></a> -->
+            <div class="dropdown">
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    Cursos
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="Primer año.html">Primer año</a></li>
+                    <li><a class="dropdown-item" href="Segundo año.html">Segundo año</a></li>
+                    <li><a class="dropdown-item" href="Tercer año.html">Tercer año</a></li>
+                    <li><a class="dropdown-item" href="Cuarto año.html">Cuarto año</a></li>
+                    <li><a class="dropdown-item" href="Quinto año.html">Quinto año</a></li>
+                    <li><a class="dropdown-item" href="Sexto año.html">Sexto año</a></li>
+                </ul>
+
+            </div>
+            <div class="search-container">
+                <form action="/action_page.php">
+                    <input type="text" placeholder="Buscar curso..." name="search">
+                    <a class="btn" href="#"><button type="submit">Buscar</button></a>
+                    <a class="btn" href="{{ url_for('perfil', _external=True) }}"><button>Perfil</button></a>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- S E P A R A D O R       P A        S A B E R -->
+     <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{url_for('static', filename='img/newnew.jpg')}}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>¡Sumérgete en el emocionante mundo de los números!</h5>
+                    <br>
+                    <br>
+                    <p>¡Aprende matemáticas de manera interactiva y visual!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{url_for('static', filename='img/mathe.avif')}}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Reconocemos que la enseñanza de las matemáticas puede ser más efectiva a través de recursos visuales. Ofreceremos una amplia gama de gráficos, diagramas y animaciones para ayudar a los alumnos a visualizar conceptos matemáticos abstractos de manera más clara y comprensible.</h5>
+                    <br>
+                    <br>
+                    <p>¡Inscríbete ya¡</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+    <!-- O T R A        C O S A       -->
+    <br><br>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<style>
+    body{
+        background-color:white;
+    }
+</style>
+</html>

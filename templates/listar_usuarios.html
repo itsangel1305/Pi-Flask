@@ -1,0 +1,30 @@
+{% include ('cabecera.html') %}
+
+{% if usuarios %}
+
+<div>
+    <h1 class="text-center">Lista de usuarios</h1>
+</div>
+
+<br>
+<table class="table table-striped"> 
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Contraseña</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for mostrar in usuarios %}
+      <tr>
+        <th scope="row"> {{mostrar.Id}} </th>
+        <td> {{mostrar.correo}} </td>
+        <td> {{mostrar.password}} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>no hay datos</p>
+  {% endif %}

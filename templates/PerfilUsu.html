@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<style>
+    html,
+body {
+  height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color:#e8f5fe;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  width: 100%;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+    font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.section {
+  width: 100%;
+  height: 550px; 
+  background-color: #d0f2ff; 
+  text-align: center; 
+  padding-top: 75px; 
+}
+.section2 {
+  width: 100%;
+  height: 550px;
+  background-color: #d0f2ff;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.section3 {
+  width: 90%;
+  height: 200px;
+  background-color: #E8FEFD;
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.section4 {
+  width: 90%;
+  height: 420px;
+  background-color: #E8FEFD;
+  text-align: center;
+  padding-top: 40px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.section5 {
+  width: 90%;
+  height: 300px;
+  background-color: #E8FEFD;
+  text-align:left;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.section6 {
+  width: 90%;
+  height: 140px;
+  background-color: #E8FEFD;
+  text-align:left;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.editar{
+  font-size: 12px; 
+  text-align:right;
+}
+
+* {  
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+}
+
+.header {
+  background-color: #6DC5E7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85px;
+  display: flex;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header .btn button{
+  font-weight: 700;
+  color: #1b3039;
+  padding: 9px 25px;
+  background: #eceff1;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.search-container input[type=text] {
+padding: 10px;
+margin-top: 8px;
+margin-right: 16px;
+border: 2px solid black;
+border-radius: 20px;
+font-size: 17px;
+}
+
+.search-container button {
+padding: 10px 20px;
+background: #ddd;
+font-size: 17px;
+border: 2px solid black;
+border-radius: 20px;
+cursor: pointer;
+}
+
+.logo{
+    padding: 0px 5%;
+}
+
+.header .logo{
+    cursor: pointer;
+}
+
+.header .logo img {
+    height: 70px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.header .logo img:hover{
+    transform: scale(1.2);
+}
+</style>
+
+{% extends 'base.html' %}
+
+
+{% block title %}Usuario{% endblock%}
+
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+{% endblock %}
+
+
+{%block body %}
+<header class="header">
+    <div class="logo">
+        <img src="{{url_for('static', filename='img/mates.png')}}">
+    </div>
+    <div class="btn-container">
+        <div class="dropdown">
+            <a href="/">salir</a>
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                Cursos
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#">Suma</a></li>
+                <li><a class="dropdown-item" href="#">Resta</a></li>
+                <li><a class="dropdown-item" href="#">Producto</a></li>
+                <li><a class="dropdown-item" href="#">División</a></li>
+                <li><a class="dropdown-item" href="#">Composición</a></li>
+            </ul>
+            
+        </div>
+        <div class="search-container">
+            <form action="/action_page.php">
+                <input type="text" placeholder="Buscar curso..." name="search">
+                <a class="btn" href="#"><button type="submit">Cursos</button></a>
+            </form>
+        </div>
+    </div>
+</header>
+
+
+<div class="section">
+    <img class="mb-4" src="{{url_for('static', filename='img/isa.png')}}" height="230">
+    <h2>Vety <img src="{{url_for('static', filename='img/proyecto.png')}}" height="30"></h2>
+</div>
+  
+  <div class="section2">
+    <div class="section4">
+        <div class="section5">
+            <h5>Información del usuario: </h5>
+            <p class="editar">Editar</p>
+            <p> ● Correo: uncorreo@gmail.com</p>
+            <p> ● Ciudad: Querétaro</p>
+            <p> ● Escuela: UPQ</p>
+            <p> ● Último grado de estudios: Superior</p>
+        </div>
+    </div>
+  </div>
+  
+  <div class="section2">
+    <div class="section3">
+        <div class="section6">
+            <h5>Actividad de acceso: </h5>
+            <br>
+            <p> ● Primera vez ingresada 2023/05/12</p>
+            <p> ● Última vez ingresada 2024/04/07</p>
+        </div>
+    </div>
+    <div class="section3">
+        <div class="section6">
+        <h5>Informes: </h5>
+        <br>
+        <p><a href="#">Calificaciones</a></p>
+        <p><a href="#">Respuestas en foros</a></p>
+        </div>
+    </div>
+  </div>
+{%endblock%}
+    <a href="/">salir</a>
+</body>
+</html>
